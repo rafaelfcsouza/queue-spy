@@ -1,4 +1,4 @@
-workbox.core.setCacheNameDetails({ prefix: 'bento-starter' })
+workbox.core.setCacheNameDetails({ prefix: 'queue-spy' })
 
 workbox.skipWaiting()
 workbox.clientsClaim()

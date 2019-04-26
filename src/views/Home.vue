@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <h1 class="home-page-title">{{ appTitle }}</h1>
-    <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
+    <img alt="queue-spy" class="logo" src="@/assets/img/bento-starter.svg" />
 
     <a
       rel="noopener"
@@ -24,7 +24,7 @@ export default {
     meta: [
       {
         name: 'description',
-        content: 'Bento-starter home page',
+        content: 'Queue Spy home page',
         id: 'desc'
       }
     ]

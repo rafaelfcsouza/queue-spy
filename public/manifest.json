@@ -1,6 +1,6 @@
 {
-  "name": "bento-starter",
-  "short_name": "bento",
+  "name": "queue-spy",
+  "short_name": "queue-spy",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

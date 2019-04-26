@@ -47,7 +47,7 @@ export default {
     meta: [
       {
         name: 'description',
-        content: 'Sign in or sign up to bento-starter',
+        content: 'Sign in or sign up to Queue Spy',
         id: 'desc'
       }
     ]

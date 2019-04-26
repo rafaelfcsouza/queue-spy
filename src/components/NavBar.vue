@@ -1,9 +1,13 @@
 <template>
   <header class="navbar" :class="{ offline: !networkOnLine }">
     <router-link to="/home">
-      <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
+      <img
+        alt="logo-queue-spy"
+        class="logo"
+        src="@/assets/img/bento-starter.svg"
+      />
       <span class="site-name">
-        Bento<span class="can-hide">Starter</span></span
+        Queue<span class="can-hide">Spy</span></span
       ></router-link
     >
     <div class="links">
