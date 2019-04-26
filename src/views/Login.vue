@@ -36,7 +36,7 @@
 import { mapState, mapMutations } from 'vuex'
 import { isNil } from 'lodash'
 import firebase from 'firebase/app'
-import { desktop as isDekstop } from 'is_js'
+import { desktop as isDesktop } from 'is_js'
 
 export default {
   data: () => ({ loginError: null }),
@@ -85,7 +85,7 @@ export default {
         // Firebase signin with popup is faster than redirect
         // but we can't use it on mobile because it's not well supported
         // when app is running as standalone on ios & android
-        isDekstop()
+        isDesktop()
           ? await firebase.auth().signInWithPopup(provider)
           : await firebase.auth().signInWithRedirect(provider)
       } catch (err) {
