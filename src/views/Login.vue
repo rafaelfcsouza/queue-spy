@@ -16,9 +16,18 @@
       v-show="user !== undefined && !user && networkOnLine"
       data-test="login-btn"
       class="login-btn"
-      @click="login"
+      @click="login('google')"
     >
-      Login with google
+      Login with Google
+    </div>
+
+    <div
+      v-show="user !== undefined && !user && networkOnLine"
+      data-test="login-btn"
+      class="login-btn"
+      @click="login('twitter')"
+    >
+      Login with Twitter
     </div>
   </div>
 </template>
@@ -62,11 +71,16 @@ export default {
   },
   methods: {
     ...mapMutations('authentication', ['setUser']),
-    async login() {
+    async login(method) {
       this.loginError = null
-      const provider = new firebase.auth.GoogleAuthProvider()
       this.setUser(undefined)
-
+      let provider
+      if (method === 'google') {
+        provider = new firebase.auth.GoogleAuthProvider()
+      }
+      if (method === 'twitter') {
+        provider = new firebase.auth.TwitterAuthProvider()
+      }
       try {
         // Firebase signin with popup is faster than redirect
         // but we can't use it on mobile because it's not well supported
