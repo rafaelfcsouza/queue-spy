@@ -3,12 +3,12 @@ import 'firebase/auth'
 
 // The configuration below is not sensitive data. You can serenely add your config here
 const config = {
-  apiKey: 'AIzaSyDzzBbZbBBXq0AZl9twRFJndCnfDFLZcO8',
-  authDomain: 'queue-spy.firebaseapp.com',
-  databaseURL: 'https://queue-spy.firebaseio.com',
-  projectId: 'queue-spy',
-  storageBucket: 'queue-spy.appspot.com',
-  messagingSenderId: '941694789278'
+  apiKey: 'AIzaSyBcdlSDaM6I33KSgMWH4vCsEkh82lHHuN8',
+  authDomain: 'queue-spy-project.firebaseapp.com',
+  databaseURL: 'https://queue-spy-project.firebaseio.com',
+  projectId: 'queue-spy-project',
+  storageBucket: 'queue-spy-project.appspot.com',
+  messagingSenderId: '309420530713'
 }
 
 firebase.initializeApp(config)
