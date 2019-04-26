@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "bento-starter",
-    "queue-spy": "queue-spy-project"
+    "default": "queue-spy-project"
   }
 }
