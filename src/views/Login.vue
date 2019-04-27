@@ -47,7 +47,7 @@ export default {
     meta: [
       {
         name: 'description',
-        content: 'Sign in or sign up to Queue Spy',
+        content: 'Sign in or sign up to QueueSpy',
         id: 'desc'
       }
     ]
