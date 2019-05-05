@@ -5,16 +5,16 @@
       class="create-btn"
       @click="triggerVisibility(data.id)"
     >
-      Click here to add information on {{ data.name }}'s line!
+      Add information!
     </p>
 
     <p v-if="dialogVisibility === 'creating'" class="input-label">
-      >Adding your information to {{ data.name }} queue!
+      Adding your information to {{ data.name }} queue!
     </p>
 
     <div v-if="dialogVisibility === data.id" class="comment-action-bar">
       <label class="input-label"
-        >How many people you think there is on the queue?</label
+        >How many people you think there are on the queue?</label
       >
       <input
         placeholder="Can be aproximate size ;)"
