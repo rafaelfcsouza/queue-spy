@@ -10,15 +10,15 @@
         @input="setSearchInput($event.target.value)"
       />
       <div class="create-btn" @click="triggerClubSearch">Search</div>
-    </div>
 
-    <div v-if="!networkOnLine" class="search-form">
-      <p class="input-label">
-        There is some problem with you connection, not possible to Search for a
-        club in OFFLINE mode.
-      </p>
+      <div v-if="!networkOnLine" class="search-form">
+        <p class="input-label">
+          There is some problem with you connection, not possible to Search for
+          a club in OFFLINE mode.
+        </p>
+      </div>
+      <club-search-list></club-search-list>
     </div>
-    <club-search-list></club-search-list>
   </div>
 </template>
 
@@ -44,6 +44,7 @@ export default {
 
 .search-pannel {
   margin-top: 0.7rem;
+  margin-bottom: 1.3rem;
 
   .btn {
     display: block;

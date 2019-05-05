@@ -21,6 +21,10 @@
       </ol>
     </div>
     <club-search></club-search>
+    <span
+      >If you don't see your favorite club here, just send a request to
+      queuespy@gmail.com</span
+    >
   </div>
 </template>
 
