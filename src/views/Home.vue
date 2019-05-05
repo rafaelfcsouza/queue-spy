@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 import ClubSearch from '@/components/ClubSearch'
 
 export default {
@@ -30,6 +30,14 @@ export default {
   computed: {
     ...mapState('authentication', ['isUserLoggedIn']),
     ...mapState('app', ['appTitle', 'networkOnLine'])
+  },
+  created() {
+    this.setSearchInput('')
+    this.setClubs([])
+  },
+  methods: {
+    ...mapMutations('clubs', ['setSearchInput', 'setClubs']),
+    ...mapActions('clubs', ['triggerClubSearch'])
   }
 }
 </script>

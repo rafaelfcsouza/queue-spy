@@ -2,8 +2,8 @@
   <div class="club-item">
     <h1 class="club-header">{{ data.name }}</h1>
 
-    <comment-list :data="data.comments" :club-id="data.id"></comment-list>
     <add-comment v-if="networkOnLine" :data="data"></add-comment>
+    <comment-list :data="data.comments" :club-id="data.id"></comment-list>
   </div>
 </template>
 

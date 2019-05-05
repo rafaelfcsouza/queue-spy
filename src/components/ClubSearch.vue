@@ -1,7 +1,6 @@
 <template>
   <div v-if="isUserLoggedIn" class="search-pannel">
     <div v-if="networkOnLine" class="search-form">
-      <span class="input-label">Search for club</span>
       <input
         placeholder="Search by typing the Club name..."
         class="value-input"

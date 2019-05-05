@@ -38,9 +38,12 @@ export default {
    * Search Clubs by name
    */
   triggerClubSearch: async ({ state, commit }) => {
-    const clubsDb = new ClubsDB()
-    const clubs = await clubsDb.findByName(state.searchInput)
-
+    const searchInput = state.searchInput
+    let clubs = []
+    if (searchInput) {
+      const clubsDb = new ClubsDB()
+      clubs = await clubsDb.findByName(state.searchInput)
+    }
     commit('setClubs', clubs)
   },
 
