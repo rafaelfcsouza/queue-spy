@@ -47,16 +47,6 @@ describe('authentication module action', () => {
 
       expect(commit).toHaveBeenCalledWith('setUser', newCreatedUser)
     })
-
-    it('should get products for the user', async () => {
-      mockUsersDbRead.mockResolvedValue(Promise.resolve(user))
-
-      await actions.login({ commit, dispatch }, firebaseUser)
-
-      expect(dispatch).toHaveBeenCalledWith('products/getUserProducts', null, {
-        root: true
-      })
-    })
   })
 
   describe('logout', () => {
@@ -74,14 +64,6 @@ describe('authentication module action', () => {
       await actions.logout({ commit, dispatch })
 
       expect(commit).toHaveBeenCalledWith('setUser', null)
-    })
-
-    it('should set products to null', async () => {
-      await actions.logout({ commit, dispatch })
-
-      expect(commit).toHaveBeenCalledWith('products/setProducts', null, {
-        root: true
-      })
     })
 
     it('should push login view if the current route is not authorized', async () => {
