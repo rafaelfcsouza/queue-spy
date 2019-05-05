@@ -1,16 +1,31 @@
 <template>
   <div class="page-wrapper">
-    <h1>QueueSpy</h1>
-    <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg" />
-    <span v-if="!isUserLoggedIn"
-      >Collaborative tool to share the status of queues in Berlin.</span
-    >
+    <div v-if="!isUserLoggedIn" class="info">
+      <h1>QueueSpy</h1>
+      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg" />
+      <p>Collaborative tool to share the status of queues in Berlin.</p>
+      <p>So, how does it work?</p>
+      <ol>
+        <li>Login using your favorite social login</li>
+        <li>Search for the club you want</li>
+        <li>Check how is the queue for that club</li>
+        <li>Aditionally, you can add information yourself to help others 😜</li>
+      </ol>
+    </div>
+    <div v-if="isUserLoggedIn" class="info">
+      <p>How does it work?</p>
+      <ol>
+        <li>Search for the club you want</li>
+        <li>Check how is the queue for that club</li>
+        <li>Aditionally, you can add information yourself to help others 😜</li>
+      </ol>
+    </div>
     <club-search></club-search>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 import ClubSearch from '@/components/ClubSearch'
 
 export default {
@@ -28,7 +43,7 @@ export default {
   },
   components: { ClubSearch },
   computed: {
-    ...mapState('authentication', ['isUserLoggedIn']),
+    ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('app', ['appTitle', 'networkOnLine'])
   },
   created() {
@@ -55,14 +70,37 @@ export default {
   .logo {
     height: 150px;
     margin-bottom: 2rem;
+    height: 75px;
   }
 
   .home-page-title {
     text-align: center;
   }
 
-  .logo {
-    height: 75px;
+  .info {
+    font-size: large;
+    ol {
+      text-align: left;
+      margin: 0 0 1.5em;
+      padding: 0;
+      counter-reset: item;
+    }
+    ol > li {
+      margin: 0;
+      padding: 0 0 0 2em;
+      text-indent: -2em;
+      list-style-type: none;
+      counter-increment: item;
+    }
+
+    ol > li:before {
+      display: inline-block;
+      width: 1em;
+      padding-right: 0.5em;
+      font-weight: bold;
+      text-align: right;
+      content: counter(item) '.';
+    }
   }
 }
 </style>
