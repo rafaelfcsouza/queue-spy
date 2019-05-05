@@ -18,7 +18,7 @@
       class="login-btn"
       @click="login('google')"
     >
-      Login with Google
+      <span>Login with Google</span>
       <img alt="logo-google" class="logo" src="@/assets/img/google.svg" />
     </div>
 
@@ -113,18 +113,18 @@ export default {
   }
 
   .login-btn {
-    display: table-cell;
-    margin-top: 20px;
     cursor: pointer;
-    padding: 5px 20px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
     border: 1px solid;
     display: inline-block;
     border-radius: 3px;
-    border-color: #2c3e50;
-    justify-content: space-between;
-    vertical-align: middle;
-    align-items: center;
-
+    border-color: #fff;
+    background-color: #2c3e50;
+    color: #fff;
+    margin-top: 0.5rem;
+    font-size: large;
     &:hover {
       color: $vue-color;
       border-color: $vue-color;
@@ -132,7 +132,8 @@ export default {
   }
 
   .logo {
-    width: 30px;
+    padding-left: 0.5rem;
+    width: 20px;
   }
 }
 </style>
