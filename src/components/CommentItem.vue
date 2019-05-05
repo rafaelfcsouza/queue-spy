@@ -1,10 +1,13 @@
 <template>
   <div class="comment-row">
+    <div class="comment-cell cell-time">{{ formatedDate }}</div>
     <div class="comment-cell cell-size">
       ~{{ data.size }}
       <span class="can-hide">people</span>
     </div>
-    <div class="comment-cell cell-comment">{{ data.comment }}</div>
+    <div class="comment-cell cell-comment">
+      <span class="comment">{{ data.comment }}</span>
+    </div>
     <div class="comment-cell-buttons">
       <!-- <div v-if="data.author !== user.id">
         <img alt="confirm" class="button icon" src="@/assets/img/checked.svg" />
@@ -24,6 +27,46 @@ export default {
   },
   computed: {
     ...mapState('authentication', ['user'])
+  },
+  created() {
+    this.formatDate()
+  },
+  methods: {
+    appendLeadingZeroes(n) {
+      if (n <= 9) {
+        return '0' + n
+      }
+      return n
+    },
+    getDayOfWeek(day) {
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      return days[day]
+    },
+    formatDate() {
+      let date
+      let formatedDate
+      try {
+        date = this.data.createTimestamp.toDate()
+      } catch (e) {
+        //nothing to do...
+      }
+
+      if (!date) {
+        date = this.data.createTimestamp
+      }
+
+      if (date) {
+        formatedDate =
+          this.getDayOfWeek(date.getDay()) +
+          ' ' +
+          this.appendLeadingZeroes(date.getHours()) +
+          ':' +
+          this.appendLeadingZeroes(date.getMinutes())
+      } else {
+        formatedDate = '🍩'
+      }
+      this.formatedDate = formatedDate
+    }
   }
 }
 </script>
@@ -36,20 +79,32 @@ export default {
   width: 100%;
   margin: 10px auto;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
 
   .comment-cell {
     display: table-cell;
     vertical-align: middle;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
+  .cell-time {
+    font-size: small;
+    color: grey;
+    min-width: 70px;
   }
 
   .cell-size {
-    width: 20%;
+    min-width: 30px;
   }
 
   .cell-comment {
-    width: 60%;
+    .comment {
+      text-overflow: ellipsis;
+      width: 10rem;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 
   .comment-cell-buttons {

@@ -1,16 +1,13 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <p v-if="data && data.length == 0" class="infos-label">
       There is no information on this Club's queue in the last hour...
     </p>
     <div v-if="data && data.length > 0" class="comment-list">
       <div class="comment-header-group">
-        <div class="comment-header">
-          <img alt="people" class="icon" src="@/assets/img/line.svg" />
-        </div>
-        <div class="comment-header">
-          <img alt="people" class="icon" src="@/assets/img/chat-comment.svg" />
-        </div>
+        <div class="comment-header">⏳</div>
+        <div class="comment-header">👥</div>
+        <div class="comment-header">💬</div>
         <div class="comment-header-buttons"></div>
       </div>
       <div class="comment-body">
@@ -46,40 +43,42 @@ export default {
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
 
-.infos-label {
-  text-align: center;
-}
-
-.club-item {
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.comment-list {
-  margin: 20px 0;
-  display: table;
-  width: 100%;
-
-  .comment-header-group {
-    display: table-header-group;
-    font-weight: bold;
-    margin: 0 0 0 10px;
+.page-wrapper {
+  .infos-label {
+    text-align: center;
   }
 
-  .comment-header {
-    display: table-cell;
-    text-align: justify;
+  .club-item {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
-  .comment-header-buttons {
-    display: table-cell;
-    text-align: justify;
-    width: 50px;
-  }
+  .comment-list {
+    margin: 20px 0;
+    display: table;
+    width: 100%;
 
-  .comment-body {
-    display: table-row-group;
+    .comment-header-group {
+      display: table-header-group;
+      font-weight: bold;
+      margin: 0 0 0 10px;
+    }
+
+    .comment-header {
+      display: table-cell;
+      text-align: justify;
+    }
+
+    .comment-header-buttons {
+      display: table-cell;
+      text-align: justify;
+      width: 50px;
+    }
+
+    .comment-body {
+      display: table-row-group;
+    }
   }
 }
 </style>

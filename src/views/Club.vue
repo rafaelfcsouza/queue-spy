@@ -54,6 +54,7 @@ export default {
 @import '@/theme/variables.scss';
 
 .page-wrapper {
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;

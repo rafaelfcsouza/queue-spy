@@ -72,6 +72,7 @@ export default {
 
     commit('setDialogVisibility', 'creating')
     const createdComment = await clubCommentsDb.create(comment)
+    console.log('action: ' + createdComment)
     commit('addComment', createdComment)
     commit('setDialogVisibility', null)
   },
@@ -81,7 +82,7 @@ export default {
    */
   triggerAddCommentAction: ({ dispatch, state, commit, rootState }, clubId) => {
     let commentFromUser = state.commentFromUser
-    if (commentFromUser) {
+    if (!commentFromUser) {
       commentFromUser = 'no comments 😶'
     }
 

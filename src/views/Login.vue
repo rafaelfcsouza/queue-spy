@@ -116,9 +116,10 @@ export default {
 @import '@/theme/variables.scss';
 
 .page-wrapper {
+  max-width: 750px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   .login-page-title {

@@ -5,7 +5,7 @@
       class="create-btn"
       @click="triggerVisibility(data.id)"
     >
-      Add information!
+      Add information
     </p>
 
     <p v-if="dialogVisibility === 'creating'" class="input-label">
@@ -117,7 +117,6 @@ export default {
     text-align: center;
     padding: 5px 10px;
     border: 1px solid;
-    display: inline-block;
     border-radius: 3px;
     border-color: #fff;
     background-color: #2c3e50;

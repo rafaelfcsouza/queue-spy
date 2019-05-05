@@ -13,11 +13,11 @@ export default class ClubsDB extends GenericDB {
   async findByName(name) {
     const collectionRef = (await firestore()).collection(this.collectionPath)
     let query = collectionRef
-    const date = new Date()
-    date.setHours(date.getHours() - 1)
+
+    name = name.toLowerCase()
 
     query = query
-      .orderBy('name')
+      .orderBy('search_name')
       .startAt(name)
       .endAt(name + '\uf8ff')
 
