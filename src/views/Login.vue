@@ -31,6 +31,16 @@
       <span>Login with Twitter</span>
       <img alt="logo-twitter" class="logo" src="@/assets/img/twitter.svg" />
     </div>
+
+    <div
+      v-show="user !== undefined && !user && networkOnLine"
+      data-test="login-btn"
+      class="login-btn"
+      @click="login('facebook')"
+    >
+      <span>Login with Facebook</span>
+      <img alt="logo-facebook" class="logo" src="@/assets/img/facebook.svg" />
+    </div>
   </div>
 </template>
 
@@ -82,6 +92,9 @@ export default {
       }
       if (method === 'twitter') {
         provider = new firebase.auth.TwitterAuthProvider()
+      }
+      if (method === 'facebook') {
+        provider = new firebase.auth.FacebookAuthProvider()
       }
       try {
         // Firebase signin with popup is faster than redirect
