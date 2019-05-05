@@ -1,21 +1,24 @@
 <template>
   <div>
-    <p
-      v-if="data && data.length == 0"
-      class="infos-label"
-    >There is no information on this Club's queue in the last hour...</p>
+    <p v-if="data && data.length == 0" class="infos-label">
+      There is no information on this Club's queue in the last hour...
+    </p>
     <div v-if="data && data.length > 0" class="comment-list">
       <div class="comment-header-group">
         <div class="comment-header">
-          <img alt="people" class="icon" src="@/assets/img/line.svg">
+          <img alt="people" class="icon" src="@/assets/img/line.svg" />
         </div>
         <div class="comment-header">
-          <img alt="people" class="icon" src="@/assets/img/chat-comment.svg">
+          <img alt="people" class="icon" src="@/assets/img/chat-comment.svg" />
         </div>
         <div class="comment-header-buttons"></div>
       </div>
       <div class="comment-body">
-        <comment-item v-for="comment in data" :key="comment.id" :data="comment"></comment-item>
+        <comment-item
+          v-for="comment in data"
+          :key="comment.id"
+          :data="comment"
+        ></comment-item>
       </div>
     </div>
   </div>

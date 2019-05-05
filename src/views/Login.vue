@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="login-page-title">Choose a method</h1>
+    <h1 class="login-page-title">How would you like to login?</h1>
 
     <!-- Loader -->
     <div v-show="user === undefined" data-test="loader">Authenticating...</div>
