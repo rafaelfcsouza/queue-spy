@@ -1,4 +1,4 @@
-workbox.core.setCacheNameDetails({ prefix: 'queue-spy' })
+workbox.core.setCacheNameDetails({ prefix: 'QueueSpy' })
 
 workbox.skipWaiting()
 workbox.clientsClaim()

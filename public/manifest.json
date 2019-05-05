@@ -1,6 +1,6 @@
 {
-  "name": "queue-spy",
-  "short_name": "queue-spy",
+  "name": "QueueSpy",
+  "short_name": "QueueSpy",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
