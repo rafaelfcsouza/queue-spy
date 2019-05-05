@@ -6,10 +6,10 @@
     </div>
     <div class="comment-cell cell-comment">{{ data.comment }}</div>
     <div class="comment-cell-buttons">
-      <div v-if="data.author !== user.id">
+      <!-- <div v-if="data.author !== user.id">
         <img alt="confirm" class="button icon" src="@/assets/img/checked.svg" />
         <img alt="cancel" class="button icon" src="@/assets/img/cancel.svg" />
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

@@ -80,11 +80,14 @@ export default {
    * Create a new product for current loggedin user and reset product name input
    */
   triggerAddCommentAction: ({ dispatch, state, commit, rootState }, clubId) => {
-    if (state.queueSize === 0) return
+    let commentFromUser = state.commentFromUser
+    if (commentFromUser) {
+      commentFromUser = 'no comments 😶'
+    }
 
     const comment = {
       size: state.queueSize,
-      comment: state.commentFromUser,
+      comment: commentFromUser,
       author: rootState.authentication.user.id
     }
 
