@@ -1,20 +1,11 @@
 <template>
   <header class="navbar" :class="{ offline: !networkOnLine }">
     <router-link to="/home">
-      <img
-        alt="logo-queue-spy"
-        class="logo"
-        src="@/assets/img/bento-starter.svg"
-      />
-      <span class="site-name">
-        Queue<span class="can-hide">Spy</span></span
-      ></router-link
-    >
+      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg" />
+      <span class="site-name">QueueSpy</span>
+    </router-link>
     <div class="links">
       <nav class="nav-links">
-        <div class="nav-item">
-          <router-link to="/products">Products</router-link>
-        </div>
         <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
           <router-link to="/login">Login</router-link>
         </div>
@@ -30,7 +21,7 @@
 
       <img
         v-if="isUserLoggedIn && networkOnLine"
-        class="user-picture can-hide"
+        class="user-picture"
         :src="user.photoURL"
         alt="Avatar"
       />
@@ -104,6 +95,9 @@ export default {
     font-size: 0.9rem;
     position: absolute;
     right: 1.5rem;
+    @media (max-width: 500px) {
+      right: 0.7rem;
+    }
     top: 0.7rem;
     display: flex;
 
@@ -153,6 +147,9 @@ export default {
   .user-picture {
     max-height: 32px;
     margin-left: 1.5rem;
+    @media (max-width: 500px) {
+      margin-left: 0.7rem;
+    }
     border-radius: 50%;
   }
 

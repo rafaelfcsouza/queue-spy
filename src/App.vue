@@ -13,8 +13,7 @@
       v-if="showAddToHomeScreenModalForApple"
       class="apple-add-to-home-screen-modal"
       @close="closeAddToHomeScreenModalForApple(false)"
-    >
-    </apple-add-to-home-screen-modal>
+    ></apple-add-to-home-screen-modal>
   </div>
 </template>
 <script>
@@ -73,7 +72,7 @@ body {
       padding: 20px;
 
       .page-wrapper {
-        width: 60%;
+        width: 90%;
         margin: auto;
 
         @media screen and (max-width: 1000px) {
@@ -82,5 +81,9 @@ body {
       }
     }
   }
+}
+
+.icon {
+  height: 20px;
 }
 </style>

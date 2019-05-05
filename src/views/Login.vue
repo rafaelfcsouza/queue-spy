@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="login-page-title">Login page</h1>
+    <h1 class="login-page-title">Choose a method</h1>
 
     <!-- Loader -->
     <div v-show="user === undefined" data-test="loader">Authenticating...</div>
@@ -19,6 +19,7 @@
       @click="login('google')"
     >
       Login with Google
+      <img alt="logo-google" class="logo" src="@/assets/img/google.svg" />
     </div>
 
     <div
@@ -27,7 +28,8 @@
       class="login-btn"
       @click="login('twitter')"
     >
-      Login with Twitter
+      <span>Login with Twitter</span>
+      <img alt="logo-twitter" class="logo" src="@/assets/img/twitter.svg" />
     </div>
   </div>
 </template>
@@ -111,6 +113,7 @@ export default {
   }
 
   .login-btn {
+    display: table-cell;
     margin-top: 20px;
     cursor: pointer;
     padding: 5px 20px;
@@ -118,11 +121,18 @@ export default {
     display: inline-block;
     border-radius: 3px;
     border-color: #2c3e50;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
 
     &:hover {
       color: $vue-color;
       border-color: $vue-color;
     }
+  }
+
+  .logo {
+    width: 30px;
   }
 }
 </style>

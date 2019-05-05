@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
 import Home from '@/views/Home'
+import Club from '@/views/Club'
 import CheckLogin from '@/views/CheckLogin'
 import { isNil } from 'lodash'
 import store from '@/store'
@@ -46,10 +47,13 @@ const router = new Router({
       }
     },
     {
-      path: '/products',
-      name: 'products',
-      component: () =>
-        import(/* webpackChunkName: "client-chunk-products" */ '@/views/Products.vue')
+      path: '/club/:id',
+      name: 'club',
+      component: Club,
+      props: true,
+      meta: {
+        authNotRequired: true
+      }
     },
     { path: '*', redirect: '/home' }
   ]

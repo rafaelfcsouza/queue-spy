@@ -15,7 +15,7 @@ export default {
       : userFromFirebase
 
     commit('setUser', user)
-    dispatch('products/getUserProducts', null, { root: true })
+    dispatch('clubs/triggerClubSearch', null, { root: true })
   },
 
   /**
@@ -23,7 +23,6 @@ export default {
    */
   logout: ({ commit }) => {
     commit('setUser', null)
-    commit('products/setProducts', null, { root: true })
 
     const currentRouter = router.app.$route
     if (!(currentRouter.meta && currentRouter.meta.authNotRequired)) {

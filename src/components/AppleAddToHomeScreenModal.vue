@@ -3,7 +3,7 @@
     <div class="modal-wrapper">
       <div class="close" @click="$emit('close')"></div>
       <div class="main-content">
-        <img class="app-logo" src="@/assets/logo.png" />
+        <img class="app-logo" src="@/assets/spy.png" />
         <h3 class="title">Install QueueSpy</h3>
         <p class="description">
           Install this application to your home screen for quickly and easy

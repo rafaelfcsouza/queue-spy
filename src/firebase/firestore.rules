@@ -8,11 +8,15 @@ service cloud.firestore {
        allow update, delete: if authenticated() && request.auth.uid == userId;
     }
 
-    match /users/{userId}/products/{productId} {
-      allow get: if authenticated() && request.auth.uid == userId;
-			allow list: if authenticated() && request.auth.uid == userId;
-      allow create: if authenticated() && request.auth.uid == userId;
-      allow update, delete: if authenticated() && request.auth.uid == userId;
+    match /clubs/{club} {
+      allow get: if authenticated();
+			allow list: if authenticated();
+    }
+    
+    match /clubs/{club}/comments/{comment} {
+      allow get: if authenticated();
+			allow list: if authenticated();
+      allow create: if authenticated() && request.resource.data.author == request.auth.uid;
     }
   }
 }
