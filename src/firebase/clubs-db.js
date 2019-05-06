@@ -47,7 +47,9 @@ export class ClubCommentsDB extends GenericDB {
     const date = new Date()
     date.setHours(date.getHours() - 1)
 
-    query = query.where('createTimestamp', '>', date).orderBy('createTimestamp', 'desc')
+    query = query
+      .where('createTimestamp', '>', date)
+      .orderBy('createTimestamp', 'desc')
 
     const formatResult = result =>
       result.docs.map(ref =>
