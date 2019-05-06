@@ -1,7 +1,11 @@
 <template>
   <div class="page-wrapper">
     <span v-if="activeClub === null">Loading...</span>
-    <club-item v-if="activeClub != null" :disable-actions="!networkOnLine" :data="activeClub"></club-item>
+    <club-item
+      v-if="activeClub != null"
+      :disable-actions="!networkOnLine"
+      :data="activeClub"
+    ></club-item>
   </div>
 </template>
 
