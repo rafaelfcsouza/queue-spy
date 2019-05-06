@@ -13,7 +13,7 @@ export default {
   addComment: (state, createdComment) => {
     const activeClub = state.activeClub
     const comments = activeClub.comments
-    comments.push(createdComment)
+    comments.unshift(createdComment)
     state.activeClub = { ...activeClub, comments }
   },
 

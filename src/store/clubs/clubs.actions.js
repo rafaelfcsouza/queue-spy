@@ -72,7 +72,6 @@ export default {
 
     commit('setDialogVisibility', 'creating')
     const createdComment = await clubCommentsDb.create(comment)
-    console.log('action: ' + createdComment)
     commit('addComment', createdComment)
     commit('setDialogVisibility', null)
   },

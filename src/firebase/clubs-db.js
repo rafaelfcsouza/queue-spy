@@ -70,7 +70,7 @@ export class ClubCommentsDB extends GenericDB {
 
     return collectionRef
       .where('createTimestamp', '>', date)
-      .orderBy('createTimestamp')
+      .orderBy('createTimestamp', 'desc')
       .onSnapshot(callback)
   }
 }
