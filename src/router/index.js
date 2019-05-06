@@ -52,7 +52,7 @@ const router = new Router({
       component: Club,
       props: true,
       meta: {
-        authNotRequired: true
+        authNotRequired: false
       }
     },
     { path: '*', redirect: '/home' }
