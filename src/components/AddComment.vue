@@ -4,15 +4,18 @@
       v-if="dialogVisibility === null"
       class="create-btn"
       @click="triggerVisibility(data.id)"
-    >Add information</p>
+    >
+      Add information
+    </p>
 
-    <p
-      v-if="dialogVisibility === 'creating'"
-      class="input-label"
-    >Adding your information to {{ data.name }} queue!</p>
+    <p v-if="dialogVisibility === 'creating'" class="input-label">
+      Adding your information to {{ data.name }} queue!
+    </p>
 
     <div v-if="dialogVisibility === data.id" class="comment-action-bar">
-      <label class="input-label">How many people you think there are on the queue?</label>
+      <label class="input-label"
+        >How many people you think there are on the queue?</label
+      >
       <input
         placeholder="Can be aproximate size ;)"
         class="value-input"
@@ -21,21 +24,30 @@
         max="9999"
         required
         @input="setQueueSize($event.target.value, data)"
+      />
+      <label class="input-label"
+        >Do you want to share any comments on the queue?</label
       >
-      <label class="input-label">Do you want to share any comments on the queue?</label>
       <input
         placeholder="It's past the späti! Or send a message to your loved one s2"
         class="value-input"
         type="text"
         @input="setCommentFromUser($event.target.value, data)"
-      >
+      />
       <div
         :class="{ disabled: dialogVisibility === 'creating' }"
         class="create-btn"
         @click="triggerAddCommentAction(data.id)"
-      >Send</div>
+      >
+        Send
+      </div>
 
-      <span v-if="dialogVisibility !== null" class="btn" @click="triggerVisibility(null)">Close</span>
+      <span
+        v-if="dialogVisibility !== null"
+        class="btn"
+        @click="triggerVisibility(null)"
+        >Close</span
+      >
     </div>
   </div>
 </template>
