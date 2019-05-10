@@ -1,19 +1,25 @@
 <template>
   <div class="comment-row">
-    <div class="comment-cell cell-time">{{ formatedDate }}</div>
-    <div class="comment-cell cell-size">
-      ~{{ data.size }}
-      <span class="can-hide">people</span>
+    <div class="row">
+      <div class="comment-cell cell-time">{{ formatedDate }}</div>
+      <div class="comment-cell">
+        <span class="can-hide">There are</span>
+        ~{{ data.size }} 👥 in the line
+      </div>
     </div>
-    <div class="comment-cell cell-comment">
-      <span class="comment">{{ data.comment }}</span>
+    <div class="row comment-cell cell-comment">
+      <span class="comment">
+        <i>"</i>
+        {{ data.comment }}
+        <i>"</i>
+      </span>
     </div>
-    <div class="comment-cell-buttons">
-      <!-- <div v-if="data.author !== user.id">
+    <!-- <div class="comment-cell-buttons">
+      <div v-if="data.author !== user.id">
         <img alt="confirm" class="button icon" src="@/assets/img/checked.svg" />
         <img alt="cancel" class="button icon" src="@/assets/img/cancel.svg" />
-      </div>-->
-    </div>
+      </div>-
+    </div>-->
   </div>
 </template>
 
@@ -39,7 +45,15 @@ export default {
       return n
     },
     getDayOfWeek(day) {
-      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      const days = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+      ]
       return days[day]
     },
     formatDate() {
@@ -74,58 +88,60 @@ export default {
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
 .comment-row {
-  display: table-row;
-  align-items: center;
   width: 100%;
-  margin: 10px auto;
+  padding: 1rem;
   justify-content: space-between;
+  border: 1px solid #aaaaaa;
+  box-shadow: 1px 1px 0px #c2c2c2;
+  font-size: large;
+  text-align: center;
 
-  .comment-cell {
-    display: table-cell;
-    vertical-align: middle;
-    padding-right: 10px;
-    padding-top: 10px;
-  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 
-  .cell-time {
-    font-size: small;
-    color: grey;
-    min-width: 70px;
-  }
+    .comment-cell {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      vertical-align: middle;
+    }
 
-  .cell-size {
-    min-width: 30px;
-  }
+    .cell-time {
+      color: grey;
+    }
 
-  .cell-comment {
     .comment {
       text-overflow: ellipsis;
-      width: 10rem;
+      width: 100%;
       display: block;
       white-space: nowrap;
       overflow: hidden;
+      color: #aaaaaa;
+      padding-top: 10px;
     }
-  }
 
-  .comment-cell-buttons {
-    display: table-cell;
-    text-align: right;
-    width: 80px;
-    vertical-align: middle;
-  }
+    .comment-cell-buttons {
+      display: table-cell;
+      text-align: right;
+      width: 80px;
+      vertical-align: middle;
+    }
 
-  .button {
-    cursor: pointer;
-    padding: 0px 5px;
-    display: inline-block;
-    border-radius: 3px;
-  }
+    .button {
+      cursor: pointer;
+      padding: 0px 5px;
+      display: inline-block;
+      border-radius: 3px;
+    }
 
-  @media (max-width: 500px) {
-    padding: 0.7rem 0.7rem;
-
-    .can-hide {
-      display: none;
+    @media (max-width: 500px) {
+      .can-hide {
+        display: none;
+      }
     }
   }
 }

@@ -4,19 +4,11 @@
       There is no information on this Club's queue in the last 6 hours...
     </p>
     <div v-if="data && data.length > 0" class="comment-list">
-      <div class="comment-header-group">
-        <div class="comment-header">⏳</div>
-        <div class="comment-header">👥</div>
-        <div class="comment-header">💬</div>
-        <div class="comment-header-buttons"></div>
-      </div>
-      <div class="comment-body">
-        <comment-item
-          v-for="comment in data"
-          :key="comment.id"
-          :data="comment"
-        ></comment-item>
-      </div>
+      <comment-item
+        v-for="comment in data"
+        :key="comment.id"
+        :data="comment"
+      ></comment-item>
     </div>
   </div>
 </template>
@@ -55,30 +47,9 @@ export default {
   }
 
   .comment-list {
+    display: flex;
     margin: 20px 0;
-    display: table;
     width: 100%;
-
-    .comment-header-group {
-      display: table-header-group;
-      font-weight: bold;
-      margin: 0 0 0 10px;
-    }
-
-    .comment-header {
-      display: table-cell;
-      text-align: justify;
-    }
-
-    .comment-header-buttons {
-      display: table-cell;
-      text-align: justify;
-      width: 50px;
-    }
-
-    .comment-body {
-      display: table-row-group;
-    }
   }
 }
 </style>
