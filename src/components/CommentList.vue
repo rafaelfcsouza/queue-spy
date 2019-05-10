@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <p v-if="data && data.length == 0" class="infos-label">
-      There is no information on this Club's queue in the last hour...
+      There is no information on this Club's queue in the last 6 hours...
     </p>
     <div v-if="data && data.length > 0" class="comment-list">
       <div class="comment-header-group">

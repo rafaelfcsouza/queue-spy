@@ -45,7 +45,7 @@ export class ClubCommentsDB extends GenericDB {
     const collectionRef = (await firestore()).collection(this.collectionPath)
     let query = collectionRef
     const date = new Date()
-    date.setHours(date.getHours() - 1)
+    date.setHours(date.getHours() - 6)
 
     query = query
       .where('createTimestamp', '>', date)
@@ -64,7 +64,7 @@ export class ClubCommentsDB extends GenericDB {
 
   async listenToChanges(callback) {
     const date = new Date()
-    date.setHours(date.getHours() - 1)
+    date.setHours(date.getHours() - 6)
 
     const collectionRef = (await firestore()).collection(this.collectionPath)
 
