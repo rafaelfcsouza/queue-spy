@@ -3,11 +3,10 @@
     <div class="row">
       <div class="comment-cell cell-time">{{ formatedDate }}</div>
       <div class="comment-cell">
-        <span class="can-hide">There are</span>
-        ~{{ data.size }} 👥 in the line
+        <span>Aprox. {{ data.size }} 👥 in the line</span>
       </div>
     </div>
-    <div class="row comment-cell cell-comment">
+    <div class="row">
       <span class="comment">
         <i>"</i>
         {{ data.comment }}
