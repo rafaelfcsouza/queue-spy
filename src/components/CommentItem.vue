@@ -88,18 +88,19 @@ export default {
 @import '@/theme/variables.scss';
 .comment-row {
   width: 100%;
-  padding: 1rem;
   justify-content: space-between;
   border: 1px solid #aaaaaa;
   box-shadow: 1px 1px 0px #c2c2c2;
   font-size: large;
   text-align: center;
+  margin-top: 0.3em;
 
   .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    margin-top: 0.5em;
 
     .comment-cell {
       display: flex;
@@ -120,7 +121,7 @@ export default {
       white-space: nowrap;
       overflow: hidden;
       color: #aaaaaa;
-      padding-top: 10px;
+      margin-bottom: 0.5em;
     }
 
     .comment-cell-buttons {
