@@ -13,7 +13,7 @@
         maxlength="50"
         @keyup="triggerClubSearch"
         @input="setSearchInput($event.target.value)"
-      >
+      />
       <div class="create-btn" @click="triggerClubSearch">🕵️‍♀️Search</div>
 
       <div v-if="!networkOnLine" class="search-form">

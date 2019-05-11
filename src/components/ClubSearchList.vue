@@ -2,7 +2,10 @@
   <div class="search-result-box">
     <div v-if="clubs.length > 0" class="club-list">
       <div v-for="club in clubs" :key="club.id" class="club-row">
-        <router-link :to="{ name: 'club', params: { club: club, id: club.id } }">{{ club.name }}</router-link>
+        <router-link
+          :to="{ name: 'club', params: { club: club, id: club.id } }"
+          >{{ club.name }}</router-link
+        >
       </div>
     </div>
     <p v-if="clubs === null" class="infos-label">Loading...</p>

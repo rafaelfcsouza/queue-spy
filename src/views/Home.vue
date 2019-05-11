@@ -2,7 +2,7 @@
   <div class="page-wrapper">
     <div v-if="!isUserLoggedIn || !networkOnLine" class="info">
       <h1>QueueSpy</h1>
-      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg">
+      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg" />
       <p>Collaborative tool to share the status of queues in Berlin.</p>
       <p>So, how does it work?</p>
       <ol>
