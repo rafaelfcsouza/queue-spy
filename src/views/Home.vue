@@ -1,8 +1,8 @@
 <template>
   <div class="page-wrapper">
-    <div v-if="!isUserLoggedIn" class="info">
+    <div v-if="!isUserLoggedIn || !networkOnLine" class="info">
       <h1>QueueSpy</h1>
-      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg" />
+      <img alt="logo-queue-spy" class="logo" src="@/assets/img/spy.svg">
       <p>Collaborative tool to share the status of queues in Berlin.</p>
       <p>So, how does it work?</p>
       <ol>
@@ -12,19 +12,10 @@
         <li>Aditionally, you can add information yourself to help others 😜</li>
       </ol>
     </div>
-    <div v-if="isUserLoggedIn" class="info">
-      <p>How does it work?</p>
-      <ol>
-        <li>Search for the club you want</li>
-        <li>Check how is the queue for that club</li>
-        <li>Aditionally, you can add information yourself to help others 😜</li>
-      </ol>
+    <div v-if="isUserLoggedIn && networkOnLine" class="info">
+      <h2>Welcome!</h2>
     </div>
     <club-search></club-search>
-    <span>
-      If you don't see your favorite club here, just send a request to
-      queuespy@gmail.com
-    </span>
   </div>
 </template>
 
@@ -66,6 +57,7 @@ export default {
 
 .page-wrapper {
   max-width: 750px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,32 +72,6 @@ export default {
 
   .home-page-title {
     text-align: center;
-  }
-
-  .info {
-    font-size: large;
-    ol {
-      text-align: left;
-      margin: 0 0 1.5em;
-      padding: 0;
-      counter-reset: item;
-    }
-    ol > li {
-      margin: 0;
-      padding: 0 0 0 2em;
-      text-indent: -2em;
-      list-style-type: none;
-      counter-increment: item;
-    }
-
-    ol > li:before {
-      display: inline-block;
-      width: 1em;
-      padding-right: 0.5em;
-      font-weight: bold;
-      text-align: right;
-      content: counter(item) '.';
-    }
   }
 }
 </style>

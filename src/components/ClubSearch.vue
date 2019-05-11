@@ -1,6 +1,11 @@
 <template>
-  <div v-if="isUserLoggedIn" class="search-pannel">
-    <div v-if="networkOnLine" class="search-form">
+  <div v-if="isUserLoggedIn && networkOnLine" class="search-pannel">
+    <ol v-if="clubs !== null && clubs.length <= 0">
+      <li>Search for the club you want</li>
+      <li>Check how is the queue for that club</li>
+      <li>Aditionally, you can add information yourself to help others 😜</li>
+    </ol>
+    <div class="search-form">
       <input
         placeholder="Search by typing the Club name..."
         class="value-input"
@@ -8,8 +13,8 @@
         maxlength="50"
         @keyup="triggerClubSearch"
         @input="setSearchInput($event.target.value)"
-      />
-      <div class="create-btn" @click="triggerClubSearch">Search</div>
+      >
+      <div class="create-btn" @click="triggerClubSearch">🕵️‍♀️Search</div>
 
       <div v-if="!networkOnLine" class="search-form">
         <p class="input-label">
@@ -17,8 +22,8 @@
           a club in OFFLINE mode.
         </p>
       </div>
-      <club-search-list></club-search-list>
     </div>
+    <club-search-list></club-search-list>
   </div>
 </template>
 
@@ -30,6 +35,7 @@ export default {
   components: { ClubSearchList },
   computed: {
     ...mapState('app', ['networkOnLine']),
+    ...mapState('clubs', ['clubs']),
     ...mapGetters('authentication', ['isUserLoggedIn'])
   },
   methods: {
@@ -45,6 +51,7 @@ export default {
 .search-pannel {
   margin-top: 0.7rem;
   margin-bottom: 1.3rem;
+  width: 100%;
 
   .btn {
     display: block;
@@ -56,18 +63,14 @@ export default {
     background-color: #f0f0f0;
   }
 
-  .input-label {
-    font-size: larger;
-    font-weight: bold;
-  }
-
   .search-form {
     display: grid;
-    background-color: rgb(248, 248, 248);
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0.7rem;
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: larger;
 
     .input-description {
       color: gray;
@@ -76,14 +79,13 @@ export default {
 
     .value-input {
       padding-left: 5px;
-      height: 30px;
+      height: 35px;
       outline: none;
       font: inherit;
       border: 1px solid;
       border-color: #2c3e50;
       border-radius: 3px;
       margin-top: 0.5rem;
-      width: 30rem;
 
       @media (max-width: 500px) {
         width: 19rem;
@@ -116,6 +118,29 @@ export default {
       color: $vue-color;
       border-color: $vue-color;
     }
+  }
+  ol {
+    font-size: large;
+    text-align: left;
+    margin: 0 0 1em;
+    padding: 0;
+    counter-reset: item;
+  }
+  ol > li {
+    margin: 0;
+    padding: 0 0 0 2em;
+    text-indent: -2em;
+    list-style-type: none;
+    counter-increment: item;
+  }
+
+  ol > li:before {
+    display: inline-block;
+    width: 1em;
+    padding-right: 0.5em;
+    font-weight: bold;
+    text-align: right;
+    content: counter(item) '.';
   }
 }
 </style>
