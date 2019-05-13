@@ -1,4 +1,6 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kefranabg/bento-starter/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kefranabg/bento-starter/blob/master/LICENSE) ![CircleCI branch](https://img.shields.io/circleci/project/github/rafaelfcsouza/queue-spy/master.svg)
+
+https://queuespy.xyz
 
 # QueueSpy
 
