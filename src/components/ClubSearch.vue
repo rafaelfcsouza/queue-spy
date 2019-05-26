@@ -7,7 +7,7 @@
     </ol>
     <div class="search-form">
       <input
-        placeholder="Search by typing the Club name..."
+        placeholder="Club name"
         class="value-input"
         type="text"
         maxlength="50"
@@ -64,7 +64,8 @@ export default {
   }
 
   .search-form {
-    display: grid;
+    box-sizing: border-box;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -78,6 +79,7 @@ export default {
     }
 
     .value-input {
+      width: 100%;
       padding-left: 5px;
       height: 35px;
       outline: none;
