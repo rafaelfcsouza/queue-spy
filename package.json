@@ -47,7 +47,7 @@
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-vue": "^5.2.2",
-    "firebase-tools": "^6.6.0",
+    "firebase-tools": "^6.12.0",
     "node-sass": "^4.11.0",
     "prerender-spa-plugin": "^3.4.0",
     "sass-loader": "^7.1.0",
